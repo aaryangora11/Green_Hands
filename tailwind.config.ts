@@ -47,6 +47,13 @@ export default {
           DEFAULT: "hsl(var(--card))",
           foreground: "hsl(var(--card-foreground))",
         },
+        // Custom sustainable design tokens
+        "earth-brown": "hsl(var(--earth-brown))",
+        "sage-green": "hsl(var(--sage-green))",
+        "warm-cream": "hsl(var(--warm-cream))",
+        "paper-white": "hsl(var(--paper-white))",
+        "impact-orange": "hsl(var(--impact-orange))",
+        "nature-green": "hsl(var(--nature-green))",
         sidebar: {
           DEFAULT: "hsl(var(--sidebar-background))",
           foreground: "hsl(var(--sidebar-foreground))",
