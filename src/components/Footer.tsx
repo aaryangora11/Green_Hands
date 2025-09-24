@@ -36,7 +36,7 @@ const Footer = () => {
           {/* Brand */}
           <div className="space-y-4">
             <div className="flex items-center space-x-2">
-              <div className="w-10 h-10 bg-gradient-to-br from-impact-orange to-nature-green rounded-lg flex items-center justify-center">
+              <div className="w-10 h-10 bg-gradient-to-br from-warm-brown to-fresh-green rounded-lg flex items-center justify-center">
                 <Heart className="w-6 h-6 text-white" />
               </div>
               <div>
@@ -113,7 +113,7 @@ const Footer = () => {
             <div className="flex items-center space-x-4 mb-4 md:mb-0">
               <span>© 2024 GreenHands. All rights reserved.</span>
               <div className="flex items-center space-x-1">
-                <Leaf className="w-4 h-4 text-nature-green" />
+                <Leaf className="w-4 h-4 text-fresh-green" />
                 <span>Carbon Neutral Certified</span>
               </div>
             </div>

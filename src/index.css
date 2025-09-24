@@ -8,57 +8,59 @@ All colors MUST be HSL.
 
 @layer base {
   :root {
-    /* Paper-inspired sustainable palette */
-    --background: 36 33% 97%;
-    --foreground: 30 15% 15%;
+    /* Green-White-Brown sustainable palette */
+    --background: 0 0% 99%;
+    --foreground: 30 20% 15%;
 
-    --card: 36 50% 98%;
-    --card-foreground: 30 15% 15%;
+    --card: 0 0% 100%;
+    --card-foreground: 30 20% 15%;
 
-    --popover: 36 50% 98%;
-    --popover-foreground: 30 15% 15%;
+    --popover: 0 0% 100%;
+    --popover-foreground: 30 20% 15%;
 
-    /* Warm earth primary - recycled paper brown */
-    --primary: 30 25% 35%;
-    --primary-foreground: 36 50% 98%;
+    /* Rich forest green primary */
+    --primary: 120 40% 25%;
+    --primary-foreground: 0 0% 99%;
 
-    /* Sage green secondary - natural/sustainable */
-    --secondary: 120 15% 85%;
-    --secondary-foreground: 30 25% 35%;
+    /* Warm cream secondary */
+    --secondary: 40 15% 92%;
+    --secondary-foreground: 30 20% 15%;
 
-    --muted: 36 20% 92%;
-    --muted-foreground: 30 8% 45%;
+    --muted: 40 10% 95%;
+    --muted-foreground: 30 15% 45%;
 
-    /* Warm accent - hope and warmth */
-    --accent: 25 60% 65%;
-    --accent-foreground: 36 50% 98%;
+    /* Natural brown accent */
+    --accent: 30 35% 45%;
+    --accent-foreground: 0 0% 99%;
 
     --destructive: 0 65% 55%;
-    --destructive-foreground: 36 50% 98%;
+    --destructive-foreground: 0 0% 99%;
 
-    --border: 36 15% 88%;
-    --input: 36 15% 88%;
-    --ring: 30 25% 35%;
+    --border: 40 10% 88%;
+    --input: 40 10% 88%;
+    --ring: 120 40% 25%;
 
     --radius: 0.75rem;
 
-    /* Custom design tokens for social impact theme */
-    --earth-brown: 30 25% 35%;
-    --sage-green: 120 20% 70%;
-    --warm-cream: 36 33% 97%;
-    --paper-white: 36 50% 98%;
-    --impact-orange: 25 60% 65%;
-    --nature-green: 120 35% 45%;
+    /* Custom design tokens for green-brown-white theme */
+    --forest-green: 120 40% 25%;
+    --sage-green: 120 25% 60%;
+    --fresh-green: 120 45% 40%;
+    --warm-brown: 30 35% 45%;
+    --earth-brown: 25 30% 35%;
+    --cream-white: 40 15% 96%;
+    --pure-white: 0 0% 100%;
 
-    /* Gradients for warmth and depth */
-    --gradient-hero: linear-gradient(135deg, hsl(var(--sage-green)), hsl(var(--warm-cream)));
-    --gradient-card: linear-gradient(145deg, hsl(var(--paper-white)), hsl(var(--warm-cream)));
-    --gradient-accent: linear-gradient(135deg, hsl(var(--impact-orange)), hsl(25 70% 70%));
+    /* Updated gradients for natural feel */
+    --gradient-hero: linear-gradient(135deg, hsl(var(--sage-green)), hsl(var(--cream-white)));
+    --gradient-card: linear-gradient(145deg, hsl(var(--pure-white)), hsl(var(--cream-white)));
+    --gradient-accent: linear-gradient(135deg, hsl(var(--fresh-green)), hsl(120 50% 50%));
+    --gradient-brown: linear-gradient(135deg, hsl(var(--warm-brown)), hsl(var(--earth-brown)));
 
-    /* Shadows for paper-like depth */
-    --shadow-soft: 0 2px 12px -4px hsl(var(--earth-brown) / 0.1);
-    --shadow-medium: 0 4px 20px -8px hsl(var(--earth-brown) / 0.15);
-    --shadow-strong: 0 8px 32px -12px hsl(var(--earth-brown) / 0.2);
+    /* Shadows for natural depth */
+    --shadow-soft: 0 2px 12px -4px hsl(var(--forest-green) / 0.1);
+    --shadow-medium: 0 4px 20px -8px hsl(var(--forest-green) / 0.15);
+    --shadow-strong: 0 8px 32px -12px hsl(var(--forest-green) / 0.2);
 
     /* Transitions */
     --transition-smooth: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
@@ -83,41 +85,42 @@ All colors MUST be HSL.
   }
 
   .dark {
-    --background: 30 15% 8%;
-    --foreground: 36 50% 98%;
+    --background: 25 15% 8%;
+    --foreground: 0 0% 98%;
 
-    --card: 30 15% 10%;
-    --card-foreground: 36 50% 98%;
+    --card: 25 15% 10%;
+    --card-foreground: 0 0% 98%;
 
-    --popover: 30 15% 10%;
-    --popover-foreground: 36 50% 98%;
+    --popover: 25 15% 10%;
+    --popover-foreground: 0 0% 98%;
 
-    --primary: 36 50% 98%;
-    --primary-foreground: 30 15% 15%;
+    --primary: 120 45% 60%;
+    --primary-foreground: 25 15% 8%;
 
-    --secondary: 30 10% 15%;
-    --secondary-foreground: 36 50% 98%;
+    --secondary: 25 10% 15%;
+    --secondary-foreground: 0 0% 98%;
 
-    --muted: 30 10% 15%;
-    --muted-foreground: 36 20% 70%;
+    --muted: 25 10% 15%;
+    --muted-foreground: 0 0% 70%;
 
-    --accent: 30 10% 15%;
-    --accent-foreground: 36 50% 98%;
+    --accent: 30 40% 55%;
+    --accent-foreground: 0 0% 98%;
 
     --destructive: 0 65% 45%;
-    --destructive-foreground: 36 50% 98%;
+    --destructive-foreground: 0 0% 98%;
 
-    --border: 30 10% 18%;
-    --input: 30 10% 18%;
-    --ring: 36 50% 98%;
+    --border: 25 10% 18%;
+    --input: 25 10% 18%;
+    --ring: 120 45% 60%;
 
     /* Dark mode custom tokens */
-    --earth-brown: 36 50% 98%;
-    --sage-green: 120 20% 60%;
-    --warm-cream: 30 15% 8%;
-    --paper-white: 30 15% 10%;
-    --impact-orange: 25 70% 60%;
-    --nature-green: 120 35% 55%;
+    --forest-green: 120 45% 60%;
+    --sage-green: 120 30% 65%;
+    --fresh-green: 120 50% 55%;
+    --warm-brown: 30 40% 60%;
+    --earth-brown: 25 35% 50%;
+    --cream-white: 25 15% 8%;
+    --pure-white: 25 15% 10%;
 
     --sidebar-background: 240 5.9% 10%;
     --sidebar-foreground: 240 4.8% 95.9%;

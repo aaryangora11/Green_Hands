@@ -47,13 +47,14 @@ export default {
           DEFAULT: "hsl(var(--card))",
           foreground: "hsl(var(--card-foreground))",
         },
-        // Custom sustainable design tokens
-        "earth-brown": "hsl(var(--earth-brown))",
+        // Custom green-brown-white design tokens
+        "forest-green": "hsl(var(--forest-green))",
         "sage-green": "hsl(var(--sage-green))",
-        "warm-cream": "hsl(var(--warm-cream))",
-        "paper-white": "hsl(var(--paper-white))",
-        "impact-orange": "hsl(var(--impact-orange))",
-        "nature-green": "hsl(var(--nature-green))",
+        "fresh-green": "hsl(var(--fresh-green))",
+        "warm-brown": "hsl(var(--warm-brown))",
+        "earth-brown": "hsl(var(--earth-brown))",
+        "cream-white": "hsl(var(--cream-white))",
+        "pure-white": "hsl(var(--pure-white))",
         sidebar: {
           DEFAULT: "hsl(var(--sidebar-background))",
           foreground: "hsl(var(--sidebar-foreground))",

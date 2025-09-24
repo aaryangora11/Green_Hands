@@ -57,7 +57,7 @@ const FeaturedProducts = () => {
           </Badge>
           <h2 className="text-3xl md:text-5xl font-bold text-foreground mb-4">
             Products That Make a
-            <span className="text-impact-orange"> Difference</span>
+            <span className="text-warm-brown"> Difference</span>
           </h2>
           <p className="text-lg text-muted-foreground max-w-2xl mx-auto">
             Each purchase directly supports artisans in their journey toward independence 

@@ -8,7 +8,7 @@ const Header = () => {
         <div className="flex items-center justify-between">
           {/* Logo */}
           <div className="flex items-center space-x-2">
-            <div className="w-10 h-10 bg-gradient-to-br from-sage-green to-nature-green rounded-lg flex items-center justify-center">
+            <div className="w-10 h-10 bg-gradient-to-br from-sage-green to-fresh-green rounded-lg flex items-center justify-center">
               <Heart className="w-6 h-6 text-white" />
             </div>
             <div>

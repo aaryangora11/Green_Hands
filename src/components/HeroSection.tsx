@@ -18,8 +18,8 @@ const HeroSection = () => {
         <div className="max-w-2xl">
           <div className="flex items-center space-x-2 mb-6">
             <div className="flex items-center space-x-1">
-              <Heart className="w-5 h-5 text-impact-orange" />
-              <Leaf className="w-5 h-5 text-nature-green" />
+              <Heart className="w-5 h-5 text-warm-brown" />
+              <Leaf className="w-5 h-5 text-fresh-green" />
               <Users className="w-5 h-5 text-sage-green" />
             </div>
             <span className="text-sm font-medium text-muted-foreground uppercase tracking-wider">
@@ -29,8 +29,8 @@ const HeroSection = () => {
 
           <h1 className="text-4xl md:text-6xl font-bold text-foreground mb-6 leading-tight">
             Handcrafted with
-            <span className="text-impact-orange"> Purpose</span>,
-            Made with <span className="text-nature-green">Love</span>
+            <span className="text-warm-brown"> Purpose</span>,
+            Made with <span className="text-fresh-green">Love</span>
           </h1>
 
           <p className="text-lg md:text-xl text-muted-foreground mb-8 leading-relaxed">
@@ -56,11 +56,11 @@ const HeroSection = () => {
               <div className="text-sm text-muted-foreground">Artisans Supported</div>
             </div>
             <div className="text-center">
-              <div className="text-2xl md:text-3xl font-bold text-nature-green mb-1">10K+</div>
+              <div className="text-2xl md:text-3xl font-bold text-fresh-green mb-1">10K+</div>
               <div className="text-sm text-muted-foreground">Products Sold</div>
             </div>
             <div className="text-center">
-              <div className="text-2xl md:text-3xl font-bold text-impact-orange mb-1">2M+</div>
+              <div className="text-2xl md:text-3xl font-bold text-warm-brown mb-1">2M+</div>
               <div className="text-sm text-muted-foreground">Papers Recycled</div>
             </div>
           </div>

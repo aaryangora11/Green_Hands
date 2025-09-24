@@ -8,14 +8,14 @@ const impactStats = [
     title: "Lives Empowered",
     value: "500+",
     description: "Artisans supported across communities",
-    color: "text-impact-orange"
+    color: "text-warm-brown"
   },
   {
     icon: Recycle,
     title: "Paper Recycled", 
     value: "2M+",
     description: "Sheets of waste paper given new life",
-    color: "text-nature-green"
+    color: "text-fresh-green"
   },
   {
     icon: Heart,
@@ -36,7 +36,7 @@ const impactStats = [
     title: "Trees Saved",
     value: "150+",
     description: "Through our recycling initiatives",
-    color: "text-nature-green"
+    color: "text-fresh-green"
   },
   {
     icon: Leaf,
@@ -49,7 +49,7 @@ const impactStats = [
 
 const ImpactSection = () => {
   return (
-    <section id="impact" className="py-20 bg-gradient-to-br from-sage-green/10 via-background to-impact-orange/5">
+    <section id="impact" className="py-20 bg-gradient-to-br from-sage-green/10 via-background to-warm-brown/5">
       <div className="container mx-auto px-4">
         <div className="text-center mb-12">
           <Badge variant="secondary" className="mb-4">
@@ -57,7 +57,7 @@ const ImpactSection = () => {
           </Badge>
           <h2 className="text-3xl md:text-5xl font-bold text-foreground mb-4">
             Measuring What
-            <span className="text-impact-orange"> Matters</span>
+            <span className="text-warm-brown"> Matters</span>
           </h2>
           <p className="text-lg text-muted-foreground max-w-2xl mx-auto">
             Every purchase creates ripple effects of positive change. 
@@ -90,7 +90,7 @@ const ImpactSection = () => {
         </div>
 
         {/* Mission Statement */}
-        <Card className="bg-gradient-to-r from-primary/5 to-impact-orange/5 border-0 shadow-xl">
+        <Card className="bg-gradient-to-r from-primary/5 to-warm-brown/5 border-0 shadow-xl">
           <CardContent className="p-8 md:p-12 text-center">
             <h3 className="text-2xl md:text-3xl font-bold text-foreground mb-4">
               "Every product purchased creates a cycle of empowerment, 

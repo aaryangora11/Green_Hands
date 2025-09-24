@@ -47,7 +47,7 @@ const ArtisanStories = () => {
           </Badge>
           <h2 className="text-3xl md:text-5xl font-bold text-foreground mb-4">
             Stories of
-            <span className="text-impact-orange"> Resilience</span>
+            <span className="text-warm-brown"> Resilience</span>
           </h2>
           <p className="text-lg text-muted-foreground max-w-2xl mx-auto">
             Behind every product is a person with a story of strength, creativity, 
@@ -72,7 +72,7 @@ const ArtisanStories = () => {
               </div>
 
               <CardContent className="p-6">
-                <Quote className="w-8 h-8 text-impact-orange mb-4" />
+                <Quote className="w-8 h-8 text-warm-brown mb-4" />
                 
                 <blockquote className="text-muted-foreground mb-6 italic leading-relaxed">
                   "{story.quote}"
@@ -88,7 +88,7 @@ const ArtisanStories = () => {
                     <span className="text-sm text-muted-foreground">{story.yearsActive}</span>
                   </div>
                   <div className="pt-2 border-t">
-                    <p className="text-sm font-medium text-nature-green">{story.impact}</p>
+                    <p className="text-sm font-medium text-fresh-green">{story.impact}</p>
                   </div>
                 </div>
 
