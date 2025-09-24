@@ -40,7 +40,7 @@ const Footer = () => {
                 <Heart className="w-6 h-6 text-white" />
               </div>
               <div>
-                <h3 className="text-xl font-bold">HeartCraft</h3>
+                <h3 className="text-xl font-bold">GreenHands</h3>
                 <p className="text-sm text-primary-foreground/80">Empowering Communities</p>
               </div>
             </div>
@@ -91,7 +91,7 @@ const Footer = () => {
             <div className="space-y-3 text-sm text-primary-foreground/80">
               <div className="flex items-center space-x-2">
                 <Mail className="w-4 h-4" />
-                <span>hello@heartcraft.com</span>
+                <span>hello@greenhands.com</span>
               </div>
               <div className="flex items-center space-x-2">
                 <Phone className="w-4 h-4" />
@@ -111,7 +111,7 @@ const Footer = () => {
         <div className="container mx-auto px-4 py-6">
           <div className="flex flex-col md:flex-row justify-between items-center text-sm text-primary-foreground/80">
             <div className="flex items-center space-x-4 mb-4 md:mb-0">
-              <span>© 2024 HeartCraft. All rights reserved.</span>
+              <span>© 2024 GreenHands. All rights reserved.</span>
               <div className="flex items-center space-x-1">
                 <Leaf className="w-4 h-4 text-nature-green" />
                 <span>Carbon Neutral Certified</span>
