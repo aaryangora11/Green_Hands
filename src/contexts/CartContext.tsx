@@ -23,6 +23,7 @@ interface CartContextType {
   updateQuantity: (itemId: string, quantity: number) => Promise<void>;
   clearCart: () => Promise<void>;
   totalAmount: number;
+  totalPrice: number;
   totalItems: number;
   loading: boolean;
 }
@@ -196,6 +197,8 @@ export const CartProvider = ({ children }: CartProviderProps) => {
   const totalAmount = items.reduce((sum, item) => {
     return sum + (item.products.price * item.quantity);
   }, 0);
+  
+  const totalPrice = totalAmount;
 
   const totalItems = items.reduce((sum, item) => sum + item.quantity, 0);
 
@@ -206,6 +209,7 @@ export const CartProvider = ({ children }: CartProviderProps) => {
     updateQuantity,
     clearCart,
     totalAmount,
+    totalPrice,
     totalItems,
     loading
   };

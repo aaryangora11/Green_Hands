@@ -2,7 +2,7 @@ import { Sheet, SheetContent, SheetHeader, SheetTitle, SheetTrigger } from '@/co
 import { Button } from '@/components/ui/button';
 import { Badge } from '@/components/ui/badge';
 import { ShoppingCart as ShoppingCartIcon, Plus, Minus, Trash2 } from 'lucide-react';
-import { useCart } from '@/hooks/useCart';
+import { useCart } from '@/contexts/CartContext';
 import { Link } from 'react-router-dom';
 
 const ShoppingCart = () => {
@@ -42,14 +42,14 @@ const ShoppingCart = () => {
                 {items.map((item) => (
                   <div key={item.id} className="flex items-center space-x-4 p-4 border rounded-lg">
                     <img 
-                      src={item.product.image_url} 
-                      alt={item.product.name}
+                      src={item.products.image_url} 
+                      alt={item.products.name}
                       className="w-16 h-16 object-cover rounded"
                     />
                     <div className="flex-1">
-                      <h4 className="font-medium">{item.product.name}</h4>
+                      <h4 className="font-medium">{item.products.name}</h4>
                       <p className="text-sm text-muted-foreground">
-                        ${item.product.price.toFixed(2)} each
+                        ${item.products.price.toFixed(2)} each
                       </p>
                       <div className="flex items-center space-x-2 mt-2">
                         <Button 

@@ -1,4 +1,4 @@
-import { useState, useEffect, createContext, useContext, ReactNode } from 'react';
+import { useState, useEffect } from 'react';
 import { supabase } from '@/integrations/supabase/client';
 import { useAuth } from './useAuth';
 import { useToast } from '@/hooks/use-toast';
@@ -15,20 +15,7 @@ interface CartItem {
   };
 }
 
-interface CartContextType {
-  items: CartItem[];
-  loading: boolean;
-  addToCart: (productId: string, quantity?: number) => Promise<void>;
-  updateQuantity: (productId: string, quantity: number) => Promise<void>;
-  removeFromCart: (productId: string) => Promise<void>;
-  clearCart: () => Promise<void>;
-  totalItems: number;
-  totalPrice: number;
-}
-
-const CartContext = createContext<CartContextType | undefined>(undefined);
-
-export const CartProvider = ({ children }: { children: ReactNode }) => {
+export const useCart = () => {
   const [items, setItems] = useState<CartItem[]>([]);
   const [loading, setLoading] = useState(false);
   const { user } = useAuth();
@@ -89,7 +76,6 @@ export const CartProvider = ({ children }: { children: ReactNode }) => {
     }
 
     try {
-      // Check if item already exists in cart
       const existingItem = items.find(item => item.product_id === productId);
       
       if (existingItem) {
@@ -209,26 +195,14 @@ export const CartProvider = ({ children }: { children: ReactNode }) => {
   const totalItems = items.reduce((sum, item) => sum + item.quantity, 0);
   const totalPrice = items.reduce((sum, item) => sum + (item.product.price * item.quantity), 0);
 
-  return (
-    <CartContext.Provider value={{
-      items,
-      loading,
-      addToCart,
-      updateQuantity,
-      removeFromCart,
-      clearCart,
-      totalItems,
-      totalPrice
-    }}>
-      {children}
-    </CartContext.Provider>
-  );
-};
-
-export const useCart = () => {
-  const context = useContext(CartContext);
-  if (context === undefined) {
-    throw new Error('useCart must be used within a CartProvider');
-  }
-  return context;
+  return {
+    items,
+    loading,
+    addToCart,
+    updateQuantity,
+    removeFromCart,
+    clearCart,
+    totalItems,
+    totalPrice
+  };
 };
