@@ -6,6 +6,7 @@ import { Input } from '@/components/ui/input';
 import { Label } from '@/components/ui/label';
 import { Textarea } from '@/components/ui/textarea';
 import { Separator } from '@/components/ui/separator';
+import { ImageIcon } from 'lucide-react';
 import { useAuth } from '@/contexts/AuthContext';
 import { useCart } from '@/contexts/CartContext';
 import { useToast } from '@/hooks/use-toast';
@@ -185,7 +186,7 @@ const Checkout = () => {
                     className="w-full"
                     disabled={isProcessing}
                   >
-                    {isProcessing ? 'Processing...' : `Place Order - $${totalPrice.toFixed(2)}`}
+                    {isProcessing ? 'Processing...' : `Place Order - ₹${totalPrice.toFixed(2)}`}
                   </Button>
                 </form>
               </CardContent>
@@ -199,19 +200,17 @@ const Checkout = () => {
               <CardContent className="space-y-4">
                 {items.map((item) => (
                   <div key={item.id} className="flex items-center space-x-4">
-                  <img 
-                    src={item.products.image_url} 
-                    alt={item.products.name}
-                    className="w-16 h-16 object-cover rounded"
-                  />
+                  <div className="w-16 h-16 bg-secondary/20 rounded flex items-center justify-center">
+                    <ImageIcon className="w-8 h-8 text-muted-foreground/30" />
+                  </div>
                   <div className="flex-1">
                     <h4 className="font-medium">{item.products.name}</h4>
                     <p className="text-sm text-muted-foreground">
-                      Qty: {item.quantity} × ${item.products.price.toFixed(2)}
+                      Qty: {item.quantity} × ₹{item.products.price.toFixed(2)}
                     </p>
                   </div>
                   <div className="text-right">
-                    <p className="font-medium">${(item.quantity * item.products.price).toFixed(2)}</p>
+                    <p className="font-medium">₹{(item.quantity * item.products.price).toFixed(2)}</p>
                   </div>
                   </div>
                 ))}
@@ -221,7 +220,7 @@ const Checkout = () => {
                 <div className="space-y-2">
                   <div className="flex justify-between">
                     <span>Subtotal</span>
-                    <span>${totalPrice.toFixed(2)}</span>
+                    <span>₹{totalPrice.toFixed(2)}</span>
                   </div>
                   <div className="flex justify-between">
                     <span>Shipping</span>
@@ -230,7 +229,7 @@ const Checkout = () => {
                   <Separator />
                   <div className="flex justify-between text-lg font-semibold">
                     <span>Total</span>
-                    <span>${totalPrice.toFixed(2)}</span>
+                    <span>₹{totalPrice.toFixed(2)}</span>
                   </div>
                 </div>
                 

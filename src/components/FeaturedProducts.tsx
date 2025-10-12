@@ -1,15 +1,13 @@
 import { Card, CardContent } from "@/components/ui/card";
 import { Button } from "@/components/ui/button";
 import { Badge } from "@/components/ui/badge";
-import { Heart, Star } from "lucide-react";
-import productsImage from "@/assets/products-showcase.jpg";
+import { Heart, Star, ImageIcon } from "lucide-react";
 
 const products = [
   {
     id: 1,
     name: "Handmade Journal",
-    price: "$24.99",
-    image: productsImage,
+    price: "₹1,999",
     artisan: "Maria, War Widow",
     rating: 4.9,
     description: "Beautiful recycled paper journal with hand-stitched binding",
@@ -18,8 +16,7 @@ const products = [
   {
     id: 2,
     name: "Greeting Card Set",
-    price: "$15.99",
-    image: productsImage,
+    price: "₹1,299",
     artisan: "Alex, Ex-Military",
     rating: 4.8,
     description: "Set of 8 artistic cards made from recycled materials",
@@ -28,8 +25,7 @@ const products = [
   {
     id: 3,
     name: "Decorative Box",
-    price: "$32.99",
-    image: productsImage,
+    price: "₹2,699",
     artisan: "Community Workshop",
     rating: 4.9,
     description: "Elegant storage box crafted with care and attention",
@@ -38,8 +34,7 @@ const products = [
   {
     id: 4,
     name: "Paper Flowers Bundle",
-    price: "$18.99",
-    image: productsImage,
+    price: "₹1,599",
     artisan: "Sarah's Workshop",
     rating: 5.0,
     description: "Colorful paper flowers that last forever",
@@ -68,12 +63,8 @@ const FeaturedProducts = () => {
         <div className="grid md:grid-cols-2 lg:grid-cols-4 gap-6">
           {products.map((product) => (
             <Card key={product.id} className="group hover:shadow-lg transition-all duration-300 overflow-hidden">
-              <div className="relative overflow-hidden">
-                <img 
-                  src={product.image} 
-                  alt={product.name}
-                  className="w-full h-48 object-cover group-hover:scale-105 transition-transform duration-300"
-                />
+              <div className="relative overflow-hidden bg-secondary/20 h-48 flex items-center justify-center">
+                <ImageIcon className="w-16 h-16 text-muted-foreground/30" />
                 <Button 
                   size="icon" 
                   variant="secondary" 

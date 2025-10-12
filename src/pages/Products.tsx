@@ -4,7 +4,7 @@ import { Button } from '@/components/ui/button';
 import { Badge } from '@/components/ui/badge';
 import { Input } from '@/components/ui/input';
 import { Select, SelectContent, SelectItem, SelectTrigger, SelectValue } from '@/components/ui/select';
-import { Heart, Star, Search, Filter } from 'lucide-react';
+import { Heart, Star, Search, Filter, ImageIcon } from 'lucide-react';
 import { supabase } from '@/integrations/supabase/client';
 import { useCart } from '@/contexts/CartContext';
 import Header from '@/components/Header';
@@ -149,12 +149,8 @@ const Products = () => {
           <div className="grid md:grid-cols-2 lg:grid-cols-3 xl:grid-cols-4 gap-6">
             {filteredProducts.map((product) => (
               <Card key={product.id} className="group hover:shadow-lg transition-all duration-300 overflow-hidden">
-                <div className="relative overflow-hidden">
-                  <img 
-                    src={product.image_url} 
-                    alt={product.name}
-                    className="w-full h-48 object-cover group-hover:scale-105 transition-transform duration-300"
-                  />
+                <div className="relative overflow-hidden bg-secondary/20 h-48 flex items-center justify-center">
+                  <ImageIcon className="w-16 h-16 text-muted-foreground/30" />
                   <Button 
                     size="icon" 
                     variant="secondary" 
@@ -188,7 +184,7 @@ const Products = () => {
                   </p>
 
                   <div className="flex items-center justify-between mb-4">
-                    <span className="text-lg font-bold text-sage-green">${product.price}</span>
+                    <span className="text-lg font-bold text-sage-green">₹{product.price}</span>
                     <span className="text-sm text-muted-foreground">
                       {product.stock_quantity} in stock
                     </span>

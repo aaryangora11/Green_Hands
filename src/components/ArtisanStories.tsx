@@ -1,15 +1,13 @@
 import { Card, CardContent } from "@/components/ui/card";
 import { Button } from "@/components/ui/button";
 import { Badge } from "@/components/ui/badge";
-import { Quote, ArrowRight } from "lucide-react";
-import artisanImage from "@/assets/artisan-story.jpg";
+import { Quote, ArrowRight, User } from "lucide-react";
 
 const stories = [
   {
     id: 1,
     name: "Maria Rodriguez",
     role: "War Widow & Artisan",
-    image: artisanImage,
     quote: "Creating these paper products has given me hope and a way to support my family with dignity. Every notebook I make carries my story of resilience.",
     products: "Journals & Notebooks",
     yearsActive: "3 years",
@@ -19,7 +17,6 @@ const stories = [
     id: 2,
     name: "James Mitchell",
     role: "Ex-Military Veteran",
-    image: artisanImage,
     quote: "This craft has become my therapy. Working with my hands helps me find peace, and knowing my work helps others gives me purpose.",
     products: "Decorative Items",
     yearsActive: "2 years", 
@@ -29,7 +26,6 @@ const stories = [
     id: 3,
     name: "Community Workshop",
     role: "Inclusive Learning Space",
-    image: artisanImage,
     quote: "Our workshop brings together individuals with different abilities, creating beautiful art while building friendships and skills.",
     products: "Collaborative Pieces",
     yearsActive: "5 years",
@@ -58,16 +54,12 @@ const ArtisanStories = () => {
         <div className="grid lg:grid-cols-3 gap-8">
           {stories.map((story) => (
             <Card key={story.id} className="group hover:shadow-xl transition-all duration-300 overflow-hidden">
-              <div className="relative">
-                <img 
-                  src={story.image} 
-                  alt={story.name}
-                  className="w-full h-64 object-cover"
-                />
-                <div className="absolute inset-0 bg-gradient-to-t from-black/50 to-transparent" />
-                <div className="absolute bottom-4 left-4 text-white">
-                  <h3 className="text-xl font-bold mb-1">{story.name}</h3>
-                  <p className="text-sm opacity-90">{story.role}</p>
+              <div className="relative bg-secondary/20 h-64 flex items-center justify-center">
+                <User className="w-24 h-24 text-muted-foreground/20" />
+                <div className="absolute inset-0 bg-gradient-to-t from-background/80 to-transparent" />
+                <div className="absolute bottom-4 left-4">
+                  <h3 className="text-xl font-bold mb-1 text-foreground">{story.name}</h3>
+                  <p className="text-sm text-muted-foreground">{story.role}</p>
                 </div>
               </div>
 

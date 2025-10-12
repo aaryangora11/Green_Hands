@@ -1,7 +1,7 @@
 import { Sheet, SheetContent, SheetHeader, SheetTitle, SheetTrigger } from '@/components/ui/sheet';
 import { Button } from '@/components/ui/button';
 import { Badge } from '@/components/ui/badge';
-import { ShoppingCart as ShoppingCartIcon, Plus, Minus, Trash2 } from 'lucide-react';
+import { ShoppingCart as ShoppingCartIcon, Plus, Minus, Trash2, ImageIcon } from 'lucide-react';
 import { useCart } from '@/contexts/CartContext';
 import { Link } from 'react-router-dom';
 
@@ -41,15 +41,13 @@ const ShoppingCart = () => {
               <div className="flex-1 space-y-4 overflow-y-auto">
                 {items.map((item) => (
                   <div key={item.id} className="flex items-center space-x-4 p-4 border rounded-lg">
-                    <img 
-                      src={item.products.image_url} 
-                      alt={item.products.name}
-                      className="w-16 h-16 object-cover rounded"
-                    />
+                    <div className="w-16 h-16 bg-secondary/20 rounded flex items-center justify-center flex-shrink-0">
+                      <ImageIcon className="w-8 h-8 text-muted-foreground/30" />
+                    </div>
                     <div className="flex-1">
                       <h4 className="font-medium">{item.products.name}</h4>
                       <p className="text-sm text-muted-foreground">
-                        ${item.products.price.toFixed(2)} each
+                        ₹{item.products.price.toFixed(2)} each
                       </p>
                       <div className="flex items-center space-x-2 mt-2">
                         <Button 
@@ -86,7 +84,7 @@ const ShoppingCart = () => {
               <div className="border-t pt-4 space-y-4">
                 <div className="flex justify-between items-center text-lg font-semibold">
                   <span>Total:</span>
-                  <span>${totalPrice.toFixed(2)}</span>
+                  <span>₹{totalPrice.toFixed(2)}</span>
                 </div>
                 <Link to="/checkout" className="w-full">
                   <Button variant="hero" className="w-full">

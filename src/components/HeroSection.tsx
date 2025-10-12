@@ -1,17 +1,10 @@
 import { Button } from "@/components/ui/button";
 import { ArrowRight, Leaf, Heart, Users } from "lucide-react";
-import heroImage from "@/assets/hero-image.jpg";
 
 const HeroSection = () => {
   return (
-    <section id="home" className="relative min-h-screen flex items-center overflow-hidden">
-      {/* Background Image */}
-      <div 
-        className="absolute inset-0 bg-cover bg-center bg-no-repeat"
-        style={{ backgroundImage: `url(${heroImage})` }}
-      >
-        <div className="absolute inset-0 bg-gradient-to-r from-background/90 via-background/70 to-background/50" />
-      </div>
+    <section id="home" className="relative min-h-screen flex items-center overflow-hidden bg-gradient-to-br from-sage-green/5 via-background to-warm-brown/5">
+      <div className="absolute inset-0 bg-[radial-gradient(ellipse_at_top_right,_var(--tw-gradient-stops))] from-sage-green/10 via-transparent to-warm-brown/10" />
 
       {/* Content */}
       <div className="relative z-10 container mx-auto px-4 py-20">
