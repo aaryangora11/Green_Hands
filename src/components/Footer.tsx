@@ -1,8 +1,11 @@
 import { Button } from "@/components/ui/button";
 import { Input } from "@/components/ui/input";
 import { Heart, Mail, Phone, MapPin, Facebook, Instagram, Twitter, Leaf } from "lucide-react";
+import { Link, useNavigate } from "react-router-dom";
 
 const Footer = () => {
+  const navigate = useNavigate();
+
   return (
     <footer className="bg-primary text-primary-foreground">
       {/* Newsletter Section */}
@@ -65,11 +68,11 @@ const Footer = () => {
           <div>
             <h4 className="font-semibold mb-4">Shop</h4>
             <ul className="space-y-2 text-sm text-primary-foreground/80">
-              <li><a href="#" className="hover:text-primary-foreground transition-colors">All Products</a></li>
-              <li><a href="#" className="hover:text-primary-foreground transition-colors">Journals & Notebooks</a></li>
-              <li><a href="#" className="hover:text-primary-foreground transition-colors">Greeting Cards</a></li>
-              <li><a href="#" className="hover:text-primary-foreground transition-colors">Decorative Items</a></li>
-              <li><a href="#" className="hover:text-primary-foreground transition-colors">Gift Sets</a></li>
+              <li><Link to="/products" className="hover:text-primary-foreground transition-colors">All Products</Link></li>
+              <li><Link to="/products" className="hover:text-primary-foreground transition-colors">Journals & Notebooks</Link></li>
+              <li><Link to="/products" className="hover:text-primary-foreground transition-colors">Greeting Cards</Link></li>
+              <li><Link to="/products" className="hover:text-primary-foreground transition-colors">Decorative Items</Link></li>
+              <li><Link to="/products" className="hover:text-primary-foreground transition-colors">Gift Sets</Link></li>
             </ul>
           </div>
 
@@ -77,11 +80,47 @@ const Footer = () => {
           <div>
             <h4 className="font-semibold mb-4">About</h4>
             <ul className="space-y-2 text-sm text-primary-foreground/80">
-              <li><a href="#" className="hover:text-primary-foreground transition-colors">Our Mission</a></li>
-              <li><a href="#" className="hover:text-primary-foreground transition-colors">Artisan Stories</a></li>
-              <li><a href="#" className="hover:text-primary-foreground transition-colors">Impact Report</a></li>
-              <li><a href="#" className="hover:text-primary-foreground transition-colors">Sustainability</a></li>
-              <li><a href="#" className="hover:text-primary-foreground transition-colors">Community</a></li>
+              <li>
+                <button 
+                  onClick={() => {
+                    navigate("/");
+                    setTimeout(() => {
+                      document.getElementById("impact")?.scrollIntoView({ behavior: "smooth" });
+                    }, 100);
+                  }}
+                  className="hover:text-primary-foreground transition-colors"
+                >
+                  Our Mission
+                </button>
+              </li>
+              <li>
+                <button 
+                  onClick={() => {
+                    navigate("/");
+                    setTimeout(() => {
+                      document.getElementById("stories")?.scrollIntoView({ behavior: "smooth" });
+                    }, 100);
+                  }}
+                  className="hover:text-primary-foreground transition-colors"
+                >
+                  Artisan Stories
+                </button>
+              </li>
+              <li>
+                <button 
+                  onClick={() => {
+                    navigate("/");
+                    setTimeout(() => {
+                      document.getElementById("impact")?.scrollIntoView({ behavior: "smooth" });
+                    }, 100);
+                  }}
+                  className="hover:text-primary-foreground transition-colors"
+                >
+                  Impact Report
+                </button>
+              </li>
+              <li><Link to="/" className="hover:text-primary-foreground transition-colors">Sustainability</Link></li>
+              <li><Link to="/" className="hover:text-primary-foreground transition-colors">Community</Link></li>
             </ul>
           </div>
 

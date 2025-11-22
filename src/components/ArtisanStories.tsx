@@ -2,6 +2,7 @@ import { Card, CardContent } from "@/components/ui/card";
 import { Button } from "@/components/ui/button";
 import { Badge } from "@/components/ui/badge";
 import { Quote, ArrowRight, User } from "lucide-react";
+import { useNavigate } from "react-router-dom";
 
 const stories = [
   {
@@ -34,6 +35,8 @@ const stories = [
 ];
 
 const ArtisanStories = () => {
+  const navigate = useNavigate();
+
   return (
     <section id="stories" className="py-20 bg-gradient-to-b from-secondary/20 to-background">
       <div className="container mx-auto px-4">
@@ -84,7 +87,7 @@ const ArtisanStories = () => {
                   </div>
                 </div>
 
-                <Button variant="outline" className="w-full group">
+                <Button variant="outline" className="w-full group" onClick={() => navigate("/products")}>
                   View Products
                   <ArrowRight className="w-4 h-4 ml-2 group-hover:translate-x-1 transition-transform" />
                 </Button>
@@ -94,7 +97,7 @@ const ArtisanStories = () => {
         </div>
 
         <div className="text-center mt-12">
-          <Button variant="hero" size="lg">
+          <Button variant="hero" size="lg" onClick={() => navigate("/products")}>
             Read More Stories
           </Button>
         </div>

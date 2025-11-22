@@ -2,6 +2,7 @@ import { Card, CardContent } from "@/components/ui/card";
 import { Button } from "@/components/ui/button";
 import { Badge } from "@/components/ui/badge";
 import { Heart, Star, ImageIcon } from "lucide-react";
+import { useNavigate } from "react-router-dom";
 
 const products = [
   {
@@ -43,6 +44,8 @@ const products = [
 ];
 
 const FeaturedProducts = () => {
+  const navigate = useNavigate();
+
   return (
     <section id="products" className="py-20 bg-gradient-to-b from-background to-secondary/20">
       <div className="container mx-auto px-4">
@@ -109,7 +112,7 @@ const FeaturedProducts = () => {
         </div>
 
         <div className="text-center mt-12">
-          <Button variant="outline" size="lg">
+          <Button variant="outline" size="lg" onClick={() => navigate("/products")}>
             View All Products
           </Button>
         </div>
