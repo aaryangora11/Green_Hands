@@ -37,48 +37,102 @@ const Checkout = () => {
       const formData = new FormData(e.currentTarget);
       const shippingAddress = `${formData.get('address')}, ${formData.get('city')}, ${formData.get('country')}`;
 
-      // Create order
-      const { data: order, error: orderError } = await supabase
-        .from('orders')
-        .insert({
-          user_id: user.id,
-          total_amount: totalPrice,
-          status: 'pending',
-          shipping_address: shippingAddress
-        })
-        .select()
-        .single();
+      // Create Razorpay order
+      const { data: razorpayOrder, error: razorpayError } = await supabase.functions.invoke(
+        'create-razorpay-order',
+        {
+          body: {
+            amount: totalPrice,
+            currency: 'INR',
+            receipt: `order_${Date.now()}`
+          }
+        }
+      );
 
-      if (orderError) throw orderError;
+      if (razorpayError) throw razorpayError;
 
-      // Create order items
-      const orderItems = items.map(item => ({
-        order_id: order.id,
-        product_id: item.product_id,
-        quantity: item.quantity,
-        unit_price: item.products.price
-      }));
+      // Initialize Razorpay checkout
+      const options = {
+        key: import.meta.env.VITE_RAZORPAY_KEY_ID || '',
+        amount: razorpayOrder.amount,
+        currency: razorpayOrder.currency,
+        name: 'GreenHands',
+        description: 'Handmade Paper Products',
+        order_id: razorpayOrder.id,
+        handler: async function (response: any) {
+          try {
+            // Create order in database after successful payment
+            const { data: order, error: orderError } = await supabase
+              .from('orders')
+              .insert({
+                user_id: user.id,
+                total_amount: totalPrice,
+                status: 'processing',
+                shipping_address: shippingAddress
+              })
+              .select()
+              .single();
 
-      const { error: itemsError } = await supabase
-        .from('order_items')
-        .insert(orderItems);
+            if (orderError) throw orderError;
 
-      if (itemsError) throw itemsError;
+            // Create order items
+            const orderItems = items.map(item => ({
+              order_id: order.id,
+              product_id: item.product_id,
+              quantity: item.quantity,
+              unit_price: item.products.price
+            }));
 
-      // Clear cart
-      await clearCart();
+            const { error: itemsError } = await supabase
+              .from('order_items')
+              .insert(orderItems);
 
-      setOrderPlaced(true);
-      toast({
-        title: "Order Placed Successfully!",
-        description: "Thank you for your purchase. You will receive a confirmation email shortly."
+            if (itemsError) throw itemsError;
+
+            // Clear cart
+            await clearCart();
+
+            setOrderPlaced(true);
+            toast({
+              title: "Payment Successful!",
+              description: "Thank you for your purchase. You will receive a confirmation email shortly."
+            });
+          } catch (error) {
+            console.error('Error saving order:', error);
+            toast({
+              title: "Order Creation Failed",
+              description: "Payment successful but order creation failed. Please contact support.",
+              variant: "destructive"
+            });
+          }
+        },
+        prefill: {
+          name: `${formData.get('firstName')} ${formData.get('lastName')}`,
+          email: formData.get('email'),
+        },
+        theme: {
+          color: '#7C9885'
+        }
+      };
+
+      // @ts-ignore - Razorpay is loaded via script
+      const razorpay = new window.Razorpay(options);
+      
+      razorpay.on('payment.failed', function (response: any) {
+        toast({
+          title: "Payment Failed",
+          description: response.error.description || "Please try again.",
+          variant: "destructive"
+        });
       });
 
+      razorpay.open();
+
     } catch (error) {
-      console.error('Error placing order:', error);
+      console.error('Error initiating payment:', error);
       toast({
-        title: "Order Failed",
-        description: "There was an error processing your order. Please try again.",
+        title: "Payment Failed",
+        description: "There was an error processing your payment. Please try again.",
         variant: "destructive"
       });
     } finally {
@@ -171,11 +225,10 @@ const Checkout = () => {
 
                   <div className="space-y-4">
                     <h3 className="text-lg font-semibold">Payment Method</h3>
-                    <div className="p-4 border rounded-lg bg-muted">
-                      <p className="text-sm text-muted-foreground">
-                        <strong>Demo Mode:</strong> This is a demonstration checkout. 
-                        No actual payment will be processed. In a real application, 
-                        this would integrate with a payment processor like Stripe.
+                    <div className="p-4 border rounded-lg bg-primary/10">
+                      <p className="text-sm font-medium mb-2">Razorpay Payment Gateway</p>
+                      <p className="text-xs text-muted-foreground">
+                        Secure payment processing via Razorpay. We accept all major credit/debit cards, UPI, and net banking.
                       </p>
                     </div>
                   </div>
