@@ -52,7 +52,7 @@ const Checkout = () => {
       if (razorpayError) throw razorpayError;
 
       // Initialize Razorpay checkout
-      const razorpayKeyId = 'rzp_test_YOUR_KEY_ID_HERE'; // Replace with your actual Razorpay Key ID
+      const razorpayKeyId = 'rzp_test_RihfVY5Pk6AljW';
       const options = {
         key: razorpayKeyId,
         amount: razorpayOrder.amount,
