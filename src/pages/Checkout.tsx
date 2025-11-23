@@ -52,8 +52,9 @@ const Checkout = () => {
       if (razorpayError) throw razorpayError;
 
       // Initialize Razorpay checkout
+      const razorpayKeyId = 'rzp_test_YOUR_KEY_ID_HERE'; // Replace with your actual Razorpay Key ID
       const options = {
-        key: import.meta.env.VITE_RAZORPAY_KEY_ID || '',
+        key: razorpayKeyId,
         amount: razorpayOrder.amount,
         currency: razorpayOrder.currency,
         name: 'GreenHands',
